@@ -76,10 +76,12 @@ input[type="number"] {
 
     justify-content: space-between;
     align-items: center;
+    
 }
 #Expense-Type{
     width: 50%;
     text-align: center;
+
 
     
     

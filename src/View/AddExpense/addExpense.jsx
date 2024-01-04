@@ -57,9 +57,9 @@ export default function AddExpense() {
               <label className="text-xl text-purple-900 font-mono" for="Expense">Choose a type of expense: </label>
 
               <select id="Expense-Type" className="text-xl h-11 
-               focus:outline-none  pr-4
+               focus:outline-none  
                bg-white rounded-lg">
-                <option value="Clothes">Clothes</option>
+                <option value="Clothes" >Clothes</option>
                 <option value="food">Food</option>
                 <option value="Transpotation">Transpotation</option>
                 <option value="select " selected>
@@ -67,6 +67,15 @@ export default function AddExpense() {
                 </option>
               </select>
             </div>
+            <div className="Description-Category flex flex-col gap-4  pt-4">
+             <label className="text-xl text-purple-900 font-mono  ">Description</label>
+             <textarea className="h-40 rounded-xl focus:outline-none p-8">
+
+             </textarea>
+            </div>
+            <button className="bg-blue-600 text-white font-mono text-xl h-11 w-40 rounded-md">
+              Add Expense
+            </button>
           </form>
         </div>
 
