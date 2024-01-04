@@ -2,6 +2,13 @@ import "./addExpense.css";
 import React, { useState } from "react";
 
 export default function AddExpense() {
+  const text= "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ..."; 
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   const data = [
     {
       id: 1,
@@ -19,7 +26,7 @@ export default function AddExpense() {
       id: 3,
       info: "Smith ko weekly rusiian ko chateko kharcha",
       amtSpend: 8441,
-      date: "2024-01-04",
+      date: "2024-01-04  ",
     },
   ];
 
@@ -54,12 +61,20 @@ export default function AddExpense() {
               ></input>
             </div>
             <div className="Expense-Category h-11">
-              <label className="text-xl text-purple-900 font-mono" for="Expense">Choose a type of expense: </label>
+              <label
+                className="text-xl text-purple-900 font-mono"
+                for="Expense"
+              >
+                Choose a type of expense:{" "}
+              </label>
 
-              <select id="Expense-Type" className="text-xl h-11 
+              <select
+                id="Expense-Type"
+                className="text-xl h-11 
                focus:outline-none  
-               bg-white rounded-lg">
-                <option value="Clothes" >Clothes</option>
+               bg-white rounded-lg"
+              >
+                <option value="Clothes">Clothes</option>
                 <option value="food">Food</option>
                 <option value="Transpotation">Transpotation</option>
                 <option value="select " selected>
@@ -68,10 +83,10 @@ export default function AddExpense() {
               </select>
             </div>
             <div className="Description-Category flex flex-col gap-4  pt-4">
-             <label className="text-xl text-purple-900 font-mono  ">Description</label>
-             <textarea className="h-40 rounded-xl focus:outline-none p-8">
-
-             </textarea>
+              <label className="text-xl text-purple-900 font-mono  ">
+                Description
+              </label>
+              <textarea className="h-40 rounded-xl focus:outline-none p-8"></textarea>
             </div>
             <button className="bg-blue-600 text-white font-mono text-xl h-11 w-40 rounded-md">
               Add Expense
@@ -80,7 +95,7 @@ export default function AddExpense() {
         </div>
 
         <div className="Added-Exspense">
-          <h1 className="font-mono pt-4 text-xl text-purple-900">Added Expenses</h1>
+          <h1 className="font-mono pt-4 text-xl text-purple-900">Expenses</h1>
           {data.map((item) => (
             <div
               className=" text-black  
@@ -97,7 +112,8 @@ export default function AddExpense() {
                   <h1>{item.info}</h1>{" "}
                 </div>
                 <div className="expense-amount">
-                  <h1 className="text-red-500"> -Rs.{item.amtSpend}</h1>
+                  <h1 className="text-red-500 "> -Rs.{item.amtSpend}</h1>
+                 
                 </div>
               </div>
               <div className="Expense-date flex pl-4 ">
@@ -105,9 +121,12 @@ export default function AddExpense() {
                   {item.date}
                 </h1>
               </div>
+              
             </div>
+            
           ))}
         </div>
+        
       </div>
     </>
   );

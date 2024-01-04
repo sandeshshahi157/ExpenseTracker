@@ -1,29 +1,34 @@
+// HomePage.js
 import React, { useState } from "react";
 import "./homepage.css";
 import Dashboard from "../Dashboard/DashBoard";
 import AddExpense from "../AddExpense/addExpense";
 
 export default function HomePage() {
-  const ButtonText = "  /* background-color: rgba(17, 0, 255, 0.007);";
+  const [activeComponent, setActiveComponent] = useState("dashboard");
+
+  const handleButtonClick = (componentName) => {
+    setActiveComponent(componentName);
+  };
+
   return (
     <>
-      <div className=" h-20 HomePageNavBar bg-gray-200 flex justify-between sticky hue-rotate-30 pt-5">
+      <div className="h-20 HomePageNavBar bg-gray-200 flex justify-between sticky hue-rotate-30 pt-5">
         <div className="logo text-3xl font-semibold font-mono h-10">
-          <img className="h-20" src="src/assets/logo.png"></img>
+          <img className="h-20" src="src/assets/logo.png" alt="Logo"></img>
         </div>
         <div className="SearchBar">
           <form>
             <input
               type="search"
-              className="  h-11 rounded-2xl m-2 text-center 
+              className="h-11 rounded-2xl m-2 text-center 
             focus:outline-none absolute shadow-lg shadow-blue-500/200
-            focus:shadow-blue-500/50 
-            "
+            focus:shadow-blue-500/50"
               placeholder="Search"
             ></input>
             <button
               type="button"
-              className="bg-blue-500 w-28  text-white font-mono
+              className="bg-blue-500 w-28 text-white font-mono
           text-xl relative          
            h-11 shadow-2xl rounded-2xl m-2 text-center
             focus:outline-none"
@@ -41,28 +46,24 @@ export default function HomePage() {
           </button>
         </div>
       </div>
-      <div className="HomePageMainBody bg-gray-200  ">
-        <div
-          className="BodySectionOne
-
-         pt-28   shadow-sm shadow-blue-500/50  "
-        >
-          <a href="#">
+      <div className="HomePageMainBody bg-gray-200">
+        <div className="BodySectionOne pt-28 shadow-sm shadow-blue-500/50">
+          <a>
             <button
+              onClick={() => handleButtonClick("dashboard")}
               className="h-14 text-black focus:shadow-lg w-64 rounded-lg 
                 focus:shadow-blue-500/200  text-2xl font-mono font-medium
-                focus:shadow-blue-500/50 bg-white Buttons
-                "
+                focus:shadow-blue-500/50 bg-white Buttons"
             >
               Dashboard
             </button>
           </a>
-          <a href="#">
+          <a>
             <button
+              onClick={() => handleButtonClick("addExpense")}
               className="h-14 text-black shadow-lg w-64 rounded-lg 
                 shadow-blue-500/200  text-2xl font-mono font-medium
-                focus:shadow-blue-500/50  bg-white Buttons
-                "
+                focus:shadow-blue-500/50  bg-white Buttons"
             >
               Add Expenses
             </button>
@@ -70,9 +71,9 @@ export default function HomePage() {
           <a href="#">
             <button
               className="h-14 text-black shadow-lg w-64 rounded-lg 
-                shadow-blue-500/200  text-2xl font-mono font-medium
-                focus:shadow-blue-500/50  bg-white Buttons
-                "
+    shadow-blue-500/200  text-2xl font-mono font-medium
+    focus:shadow-blue-500/50  bg-white Buttons
+    "
             >
               Share
             </button>
@@ -80,9 +81,9 @@ export default function HomePage() {
           <a href="#">
             <button
               className="h-14 text-black shadow-lg w-64 rounded-lg 
-                shadow-blue-500/200  text-2xl font-mono font-medium
-                focus:shadow-blue-500/50  bg-white Buttons
-                "
+    shadow-blue-500/200  text-2xl font-mono font-medium
+    focus:shadow-blue-500/50  bg-white Buttons
+    "
             >
               Wallet
             </button>
@@ -90,9 +91,9 @@ export default function HomePage() {
           <a href="#">
             <button
               className="h-14 text-black shadow-lg w-64 rounded-lg 
-                shadow-blue-500/200  text-2xl font-mono font-medium
-                focus:shadow-blue-500/50  bg-white Buttons
-                "
+    shadow-blue-500/200  text-2xl font-mono font-medium
+    focus:shadow-blue-500/50  bg-white Buttons
+    "
             >
               Settings
             </button>
@@ -100,18 +101,18 @@ export default function HomePage() {
           <a href="#">
             <button
               className="h-14 text-black shadow-lg w-64 rounded-lg 
-                shadow-blue-500/200  text-2xl font-mono font-medium  bg-white
-                focus:shadow-blue-500/50  Buttons
-                "
+    shadow-blue-500/200  text-2xl font-mono font-medium  bg-white
+    focus:shadow-blue-500/50  Buttons
+    "
             >
               Profile
             </button>
           </a>
         </div>
-
-        <div className="BodySectionTwo ">
-        {/* <Dashboard /> */}
-        <AddExpense/>
+        <div className="BodySectionTwo">
+          {activeComponent === "dashboard" && <Dashboard />}
+          {activeComponent === "addExpense" && <AddExpense />}
+          {/* Add other component checks here */}
         </div>
       </div>
     </>

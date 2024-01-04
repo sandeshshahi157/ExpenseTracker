@@ -52,10 +52,6 @@ shadow-lg shadow-blue-500/50"
                 </button>
               ))}
             </div>
-            <div className="TotalTransaction">
-              <Card className="h-28"><h1>Hello</h1></Card>
-            </div>
-         
           </div>
 
           <div className="DashAmoutAndHistoryView ">
