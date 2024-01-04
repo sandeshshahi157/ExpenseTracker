@@ -1,0 +1,201 @@
+.ContentBody {
+    height: 93vh;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+
+
+}
+.Navbutton{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.Navlist {
+    display: flex;
+    gap: 20px;
+    justify-content: baseline;
+}
+
+.Button {
+    box-shadow: 0px 4px 4px 0px rgba(252, 245, 245, 0.25);
+}
+
+.SplashSectionOne {
+    background-color: rgb(243, 243, 243);
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.SplashSectionTwo {
+    background-color: rgb(243, 243, 243);
+
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.SplashSectionTwo svg {
+    width: 100%;
+    height: 100%;
+
+}
+
+.images {
+    display: flex;
+    background-color: rgb(243, 243, 243);
+
+    
+}
+
+.images img {
+    width: 250px;
+    border-radius: 20px;
+    background-color: rgb(243, 243, 243);
+
+}
+.img1{
+    transform: rotate(-15deg);
+    box-shadow: 0px 50px 50px 10px rgba(28, 80, 223, 0.25);
+
+}
+.img3{
+    transform: rotate(15deg);
+    box-shadow: 0px 4px 4px 0px rgba(252, 245, 245, 0.25);
+
+}
+.img2{
+    box-shadow: 0px 4px 4px 0px rgba(252, 245, 245, 0.25);
+
+    transform: rotateX(4deg) rotateY(5deg);
+}
+
+.SplashText {
+    background-color: transparent;
+    width: 50%;
+    height: 30%;
+    background-color: rgb(243, 243, 243);
+
+
+
+
+}
+
+.SplashText h1 {
+    color: #000;
+
+    /* font-family: Inika; */
+
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #000;
+    font-family: Josefin Sans;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+
+}
+
+.InviteUser {
+    height: 30%;
+    width: 50%;
+    background-color: rgb(243, 243, 243);
+
+
+}
+
+.InviteUser input {
+
+    text-align: center;
+    width: 90%;
+    height: 54px;
+    border-radius: 15px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.InviteUser input:focus {
+    outline: none;
+    box-shadow: 5px 4px 4px 5px rgba(63, 135, 243, 0.25);
+
+    
+}
+
+.button {
+    height: 54px;
+    width: 100px;
+    position: absolute;
+    border-radius: 15px;
+    color: white;
+    font-family: inika;
+
+
+
+}
+
+.InviteUser form {
+    display: flex;
+
+
+}
+
+
+@media screen and (max-width: 1900px) {
+  .SplashText{
+    width: 90%;
+  }
+
+  .InviteUser{
+    width: 90%;
+  }
+  .img3{
+    display: none;
+
+  }
+  
+}
+
+@media screen and (max-width: 1025px)
+{
+    .Splashnavbar{
+        height: 60px;
+        /* background-color: rgba(17, 32, 241, 0.233); */
+    }
+    .Navlist{
+        display: none;
+    }
+    .logo {
+        padding-left: 0px;
+    }
+
+    .ContentBody{
+        height: 100%;
+        padding-top: 50px;
+        flex-direction: column;
+        background-color: rgb(241, 241, 241);
+        gap: 10px;
+        
+        
+    }
+    .SplashSectionOne{
+        width: 100%;
+        gap: 50px;
+        height: 100%;
+    }
+    .SplashText{
+        height: 100%;
+    }
+    .SplashSectionTwo{
+        padding-top: 50px;
+        width: 100%;
+        height: 100%;
+    }
+ 
+    
+}
