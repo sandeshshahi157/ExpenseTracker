@@ -57,7 +57,7 @@ export default function AddExpense() {
               <label className="text-xl text-purple-900 font-mono" for="Expense">Choose a type of expense: </label>
 
               <select id="Expense-Type" className="text-xl h-11 
-               focus:outline-none
+               focus:outline-none  pr-4
                bg-white rounded-lg">
                 <option value="Clothes">Clothes</option>
                 <option value="food">Food</option>
