@@ -112,7 +112,6 @@ export default function HomePage() {
         <div className="BodySectionTwo">
           {activeComponent === "dashboard" && <Dashboard />}
           {activeComponent === "addExpense" && <AddExpense />}
-          
         </div>
       </div>
     </>
