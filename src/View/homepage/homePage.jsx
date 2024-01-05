@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="h-20 HomePageNavBar bg-gray-200 flex justify-between sticky hue-rotate-30 pt-5">
+      <div className="h-20 HomePageNavBar  flex justify-between sticky hue-rotate-30 pt-5">
         <div className="logo text-3xl font-semibold font-mono h-10">
           <img className="h-20" src="src/assets/logo.png" alt="Logo"></img>
         </div>
@@ -46,8 +46,8 @@ export default function HomePage() {
           </button>
         </div>
       </div>
-      <div className="HomePageMainBody bg-gray-200">
-        <div className="BodySectionOne pt-28 shadow-sm shadow-blue-500/50">
+      <div className="HomePageMainBody ">
+        <div className="BodySectionOne pt-28  shadow-blue-500/50">
           <a>
             <button
               onClick={() => handleButtonClick("dashboard")}
@@ -112,7 +112,7 @@ export default function HomePage() {
         <div className="BodySectionTwo">
           {activeComponent === "dashboard" && <Dashboard />}
           {activeComponent === "addExpense" && <AddExpense />}
-          {/* Add other component checks here */}
+          
         </div>
       </div>
     </>
