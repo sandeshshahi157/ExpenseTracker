@@ -51,7 +51,7 @@ export default function HomePage() {
           <a>
             <button
               onClick={() => handleButtonClick("dashboard")}
-              className="h-14 text-black focus:shadow-lg w-64 rounded-lg 
+              className="h-14 text-black focus:shadow-lg shadow-lg w-64 rounded-lg 
                 focus:shadow-blue-500/200  text-2xl font-mono font-medium
                 focus:shadow-blue-500/50 bg-white Buttons"
             >
