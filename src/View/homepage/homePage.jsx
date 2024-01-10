@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./homepage.css";
 import Dashboard from "../Dashboard/DashBoard";
 import AddExpense from "../AddExpense/addExpense";
+import SettngScreen from "../settingScreen/settings"
 
 export default function HomePage() {
   const [activeComponent, setActiveComponent] = useState("dashboard");
@@ -90,6 +91,7 @@ export default function HomePage() {
           </a>
           <a href="#">
             <button
+             onClick={() => handleButtonClick("settings")}
               className="h-14 text-black shadow-lg w-64 rounded-lg 
     shadow-blue-500/200  text-2xl font-mono font-medium
     focus:shadow-blue-500/50  bg-white Buttons
@@ -100,6 +102,7 @@ export default function HomePage() {
           </a>
           <a href="#">
             <button
+            
               className="h-14 text-black shadow-lg w-64 rounded-lg 
     shadow-blue-500/200  text-2xl font-mono font-medium  bg-white
     focus:shadow-blue-500/50  Buttons
@@ -112,6 +115,7 @@ export default function HomePage() {
         <div className="BodySectionTwo">
           {activeComponent === "dashboard" && <Dashboard />}
           {activeComponent === "addExpense" && <AddExpense />}
+          {activeComponent === "settings" && <SettngScreen/>}
         </div>
       </div>
     </>
