@@ -3,7 +3,9 @@ export default function SettngScreen(){
 
     return(<>
     <div className="Main-Body">
-        
+        <div className="one-side">
+            
+        </div>
     </div>
 
 
