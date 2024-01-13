@@ -6,6 +6,9 @@ export default function SettngScreen(){
         <div className="one-side">
             
         </div>
+        <div className="Another-side">
+            
+        </div>
     </div>
 
 
