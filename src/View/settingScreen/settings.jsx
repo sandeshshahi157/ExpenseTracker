@@ -3,12 +3,13 @@ export default function SettngScreen(){
 
     return(<>
     <div className="Main-Body">
-        <div className="one-side">
+        <div className="Setting-menu">
+            <h1>Hello SettngScreen</h1>
+
             
         </div>
-        <div className="Another-side">
-            
-        </div>
+       
+    
     </div>
 
 
