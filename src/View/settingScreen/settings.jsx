@@ -6,6 +6,10 @@ export default function SettngScreen(){
         <div className="Setting-menu">
             
 
+            <button className="bottom-auto">
+                Add Profile
+            </button>
+
             
         </div>
        
