@@ -1,0 +1,33 @@
+.Main-Body {
+    display: flex;
+    width: 100%;
+
+    justify-content: space-evenly;
+    overflow: hidden;
+
+
+}
+
+.Menu-Body {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.Setting-menu {
+    align-items: center;
+
+    width: 20%;
+    overflow: -moz-hidden-unscrollable;
+    overflow: hidden;
+    gap: 2rem;
+}
+
+.Setting-menu button {
+    background-color: white;
+    width: 100%;
+    height: 3rem;
+    overflow: hidden;
+}

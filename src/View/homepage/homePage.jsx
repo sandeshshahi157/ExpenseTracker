@@ -15,8 +15,9 @@ export default function HomePage() {
   return (
     <>
       <div className="h-20 HomePageNavBar  flex justify-between sticky hue-rotate-30 pt-5">
-        <div className="logo text-3xl font-semibold font-mono h-10">
-          <img className="h-20" src="src/assets/logo.png" alt="Logo"></img>
+        <div className="logo">
+        <h1 className=" text-3xl font-semibold font-mono text-blue-500">Expense Tracker</h1>
+          {/* <img className="h-20" src="src/assets/logo.png" alt="Logo"></img> */}
         </div>
         <div className="SearchBar">
           <form>
