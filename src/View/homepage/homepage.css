@@ -71,6 +71,7 @@
     flex-direction: column;
     gap: 50px;
     overflow-y: auto;
+    overflow-x: hidden;
     border: none;
 
 
