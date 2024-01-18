@@ -6,9 +6,10 @@ export default function SettngScreen() {
       <div className="Main-Body pt-9">
 
         <div className="Menu-Body">
-            <h1>
-                Menu body
-            </h1>
+           <div className="Body bg-white w-56 h-56">
+
+
+           </div>
         </div>
         <div className="Setting-menu flex flex-col  justify-normal pt-28">
        
