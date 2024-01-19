@@ -6,7 +6,7 @@ export default function SettngScreen() {
       <div className="Main-Body pt-9">
 
         <div className="Menu-Body">
-           <div className="Body bg-white w-56 h-56">
+           <div className="Body bg-white ">
 
 
            </div>
