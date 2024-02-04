@@ -1,6 +1,8 @@
 import React from "react";
 
 export default function Navbar(){
+
+  
     return(<>
         <div class="flex-1 h-full " >
                 
@@ -198,8 +200,8 @@ export default function Navbar(){
                                         x-transition:leave="transition-all transform ease-in"
                                         x-transition:leave-start="translate-y-0 opacity-100"
                                         x-transition:leave-end="translate-y-1/2 opacity-0"
-                                        onClick.away="open = false"
-                                        @keydown.escape="open = false"
+                                      
+                                       
                                         class="absolute right-0 w-48 py-1 bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark focus:outline-none"
                                         tabindex="-1"
                                         role="menu"
@@ -236,7 +238,7 @@ export default function Navbar(){
                                 </div>
                             </nav>
 
-                            <!-- Mobile sub menu -->
+                        
                             <nav
                                 x-transition:enter="transition duration-200 ease-in-out transform sm:duration-500"
                                 x-transition:enter-start="-translate-y-full opacity-0"
@@ -245,19 +247,19 @@ export default function Navbar(){
                                 x-transition:leave-start="translate-y-0 opacity-100"
                                 x-transition:leave-end="-translate-y-full opacity-0"
                                 x-show="isMobileSubMenuOpen"
-                                @click.away="isMobileSubMenuOpen = false"
+                             
                                 class="absolute flex items-center p-4 bg-white rounded-md shadow-lg dark:bg-darker top-16 inset-x-4 md:hidden"
                                 aria-label="Secondary"
                                 >
                                 <div class="space-x-2">
-                                    <!-- Toggle dark theme button -->
-                                    <button aria-hidden="true" class="relative focus:outline-none" x-cloak @click="toggleTheme">
+                                   
+                                    <button aria-hidden="true" class="relative focus:outline-none" x-cloak onClick="toggleTheme">
                                         <div
                                             class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-lighter"
                                             ></div>
                                         <div
                                             class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 transform scale-110 rounded-full shadow-sm"
-                                            :class="{ 'translate-x-0 -translate-y-px  bg-white text-primary-dark': !isDark, 'translate-x-6 text-primary-100 bg-primary-darker': isDark }"
+                                            
                                             >
                                             <svg
                                                 x-show="!isDark"
@@ -292,9 +294,9 @@ export default function Navbar(){
                                         </div>
                                     </button>
 
-                                    <!-- Notification button -->
+             
                                     <button
-                                        @click="openNotificationsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
+                                        onClick="openNotificationsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
                                         class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
                                         >
                                         <span class="sr-only">Open notifications panel</span>
@@ -315,9 +317,9 @@ export default function Navbar(){
                                         </svg>
                                     </button>
 
-                                    <!-- Search button -->
+                               
                                     <button
-                                        @click="openSearchPanel(); $nextTick(() => { $refs.searchInput.focus(); setTimeout(() => {isMobileSubMenuOpen= false}, 100) })"
+                                        onClick="openSearchPanel(); $nextTick(() => { $refs.searchInput.focus(); setTimeout(() => {isMobileSubMenuOpen= false}, 100) })"
                                         class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
                                         >
                                         <span class="sr-only">Open search panel</span>
@@ -338,9 +340,9 @@ export default function Navbar(){
                                         </svg>
                                     </button>
 
-                                    <!-- Settings button -->
+                                 
                                     <button
-                                        @click="openSettingsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
+                                        onClick="openSettingsPanel(); $nextTick(() => { isMobileSubMenuOpen = false })"
                                         class="p-2 transition-colors duration-200 rounded-full text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark focus:outline-none focus:bg-primary-100 dark:focus:bg-primary-dark focus:ring-primary-darker"
                                         >
                                         <span class="sr-only">Open settings panel</span>
@@ -367,20 +369,19 @@ export default function Navbar(){
                                     </button>
                                 </div>
 
-                                <!-- User avatar button -->
+                                
                                 <div class="relative ml-auto" x-data="{ open: false }">
                                     <button
-                                        @click="open = !open"
+                                        onClick="open = !open"
                                         type="button"
                                         aria-haspopup="true"
-                                        :aria-expanded="open ? 'true' : 'false'"
+                                   
                                         class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100"
                                         >
                                         <span class="sr-only">User menu</span>
                                         <img class="w-10 h-10 rounded-full" src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
                                     </button>
 
-                                    <!-- User dropdown menu -->
                                     <div
                                         x-show="open"
                                         x-transition:enter="transition-all transform ease-out"
@@ -389,7 +390,7 @@ export default function Navbar(){
                                         x-transition:leave="transition-all transform ease-in"
                                         x-transition:leave-start="translate-y-0 opacity-100"
                                         x-transition:leave-end="translate-y-1/2 opacity-0"
-                                        @click.away="open = false"
+                                    
                                         class="absolute right-0 w-48 py-1 origin-top-right bg-white rounded-md shadow-lg top-12 ring-1 ring-black ring-opacity-5 dark:bg-dark"
                                         role="menu"
                                         aria-orientation="vertical"
@@ -427,5 +428,7 @@ export default function Navbar(){
                                 </div>
                             </nav>
                         </div>
-    </>)
+                        </header>
+</div>
+</>)
 }
