@@ -8,9 +8,13 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/primereact/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    'node_modules/flowbite-react/lib/esm/**/*.js'
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+
+    require('flowbite/plugin')
+  ],
 }
