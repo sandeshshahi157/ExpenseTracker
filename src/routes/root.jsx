@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import DashBoardPage from "../views/dashboard/dashboard";
+import '../assets/css/tailwind.css'
+import AddExpense from "../views/addexpense/addExpense";
+import { BrowserRouter , Route, Routes} from 'react-router-dom';
+
+import { Link } from "react-router-dom";
+// import '../dashboard/component/style.css'
+
 
 
 //     if (window.localStorage.getItem("dark")) {
@@ -279,176 +286,8 @@ const Root = () => {
     setActiveTab(tab);
   };
 
-  //Chart ##########################
-  const colors = {
-    primary: 'rgba(75, 192, 192, 0.2)',
-    primaryLight: 'rgba(75, 192, 192, 0.4)',
-    primaryLighter: 'rgba(75, 192, 192, 0.6)',
-    primaryDark: 'rgba(75, 192, 192, 1)',
-    primaryDarker: 'rgba(75, 192, 192, 1.5)',
-  };
-  
-  const random = (max = 100) => {
-    return Math.round(Math.random() * max) + 20;
-  };
-  
-  const randomData = () => {
-    return [random(), random(), random(), random(), random(), random(), random(), random(), random(), random(), random(), random()];
-  };
-  
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  
-  const BarChart = () => {
-    const [data, setData] = useState({
-      labels: months,
-      datasets: [
-        {
-          data: randomData(),
-          backgroundColor: colors.primaryDark,
-          hoverBackgroundColor: colors.primaryDark,
-        },
-      ],
-    });
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setData((prevData) => {
-          const newData = {
-            ...prevData,
-            datasets: [
-              {
-                data: [...randomData()],
-                backgroundColor: colors.primaryDark,
-                hoverBackgroundColor: colors.primaryDark,
-              },
-            ],
-          };
-          return newData;
-        });
-      }, 1000);
-  
-      return () => clearInterval(interval);
-    }, []);
-  
-    return <Bar data={data} options/>;
-  };
-  
-  const DoughnutChart = () => {
-    const [data, setData] = useState({
-      labels: ['Oct', 'Nov', 'Dec'],
-      datasets: [
-        {
-          data: [random(), random(), random()],
-          backgroundColor: [colors.primaryDark, colors.primary, colors.primaryLight],
-          hoverBackgroundColor: colors.primaryDark,
-          borderWidth: 0,
-          weight: 5,
-        },
-      ],
-    });
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setData((prevData) => {
-          const newData = {
-            ...prevData,
-            datasets: [
-              {
-                data: [random(), random(), random()],
-                backgroundColor: [colors.primaryDark, colors.primary, colors.primaryLight],
-                hoverBackgroundColor: colors.primaryDark,
-                borderWidth: 0,
-                weight: 5,
-              },
-            ],
-          };
-          return newData;
-        });
-      }, 1000);
-  
-      return () => clearInterval(interval);
-    }, []);
-  
-    return <Doughnut data={data} options/>;
-  };
-  
-  const LineChart = () => {
-    const [data, setData] = useState({
-      labels: months,
-      datasets: [
-        {
-          data: randomData(),
-          fill: false,
-          borderColor: colors.primaryDark,
-          borderWidth: 2,
-          pointRadius: 0,
-          pointHoverRadius: 0,
-        },
-      ],
-    });
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setData((prevData) => {
-          const newData = {
-            ...prevData,
-            datasets: [
-              {
-                data: randomData(),
-                fill: false,
-                borderColor: colors.primaryDark,
-                borderWidth: 2,
-                pointRadius: 0,
-                pointHoverRadius: 0,
-              },
-            ],
-          };
-          return newData;
-        });
-      }, 1000);
-  
-      return () => clearInterval(interval);
-    }, []);
-  
-    return <Line data={data} options/>;
-  };
-  
-  const ActiveUsersChart = () => {
-    const [data, setData] = useState({
-      labels: [...randomData(), ...randomData()],
-      datasets: [
-        {
-          data: [...randomData(), ...randomData()],
-          backgroundColor: colors.primaryDark,
-          borderWidth: 0,
-          categoryPercentage: 1,
-        },
-      ],
-    });
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setData((prevData) => {
-          const newData = {
-            ...prevData,
-            datasets: [
-              {
-                data: [...randomData(), ...randomData()],
-                backgroundColor: colors.primaryDark,
-                borderWidth: 0,
-                categoryPercentage: 1,
-              },
-            ],
-          };
-          return newData;
-        });
-      }, 1000);
-  
-      return () => clearInterval(interval);
-    }, []);
-  
-    return <Bar data={data} options/>;
-  };
+ 
+
   
 
   return (
@@ -469,12 +308,12 @@ const Root = () => {
                 className="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto"
               >
                 <div x-data="{ isActive: true, open: true}">
-                  <a
-                    href="#"
-                    className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                 
+                  <a href="#"
+                   className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                     role="button"
                     aria-haspopup="true"
-                  >
+                   >
                     <span aria-hidden="true">
                       <svg
                         className="w-5 h-5"
@@ -508,7 +347,7 @@ const Root = () => {
                         />
                       </svg>
                     </span>
-                  </a>
+                    </a>
                 </div>
 
                 {/* Repeat the structure for other navigation items */}
@@ -1119,6 +958,7 @@ const Root = () => {
 
             <main className="h-screen ">
      <DashBoardPage/>
+     {/* <AddExpense/> */}
 
       {/* Main footer */}
       <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">

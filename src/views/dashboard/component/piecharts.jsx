@@ -1,31 +1,40 @@
-import React from 'react'
-import Chart from 'react-apexcharts';
+import React, { useState } from 'react';
+import ReactApexChart from 'react-apexcharts';
+
 const ExpensePieChart = () => {
-  var options = {
-    series: [44, 55, 13, 43, 22],
-    chart: {
-    width: 380,
-    type: 'pie',
-  },
-  labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-  responsive: [{
-    breakpoint: 480,
+  const [chartData] = useState({
+    series: [5000,8000,9000,70000,5000],
     options: {
       chart: {
-        width: 200
+       
+        width: 380,
+        type: 'pie',
       },
-      legend: {
-        position: 'bottom'
-      }
-    }
-  }]
-  };
+      labels: ['Food', 'Clothes', 'Travel', 'Fees', 'Other'],
+      responsive: [{
+        breakpoint: 400,
+        options: {
+          chart: {
+            width: 350,
+            
+          },
+          legend: {
+            position: 'left'
+            
+          }
+        }
+      }]
+    },
+  });
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-  chart.render();
   return (
-    <div id="chart">ExpensePieChart</div>
-  )
-}
+    <div>
+      <div id="chart">
+        <ReactApexChart options={chartData.options} series={chartData.series} type="pie" width={380} />
+      </div>
+      <div id="html-dist"></div>
+    </div>
+  );
+};
 
-export default ExpensePieChart
+export default ExpensePieChart;
