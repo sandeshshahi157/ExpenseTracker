@@ -1,90 +1,86 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
+import dataSeries from './dataseries'
 
 const ExpenseLineChart = () => {
-  const [chartData, setChartData] = useState({
+  
+  var ts2 = 1484418600000;
+  var dates = [];
+  var spikes = [5, -5, 3, -3, 8, -8]
+  for (var i = 0; i < 120; i++) {
+    ts2 = ts2 + 86400000;
+    var innerArr = [ts2, dataSeries[1][i].value];
+    dates.push(innerArr)
+  } 
+  const [state] = useState({
     series: [
       {
-
-        data: [
-          [1612821, 70], // Example data, replace with your actual data
-          [161290, 90],
-          [161299, 85],
-          
-          
-        ],
-        name: `Expense `,
+        name: 'XYZ MOTORS',
+        data: dates,
       },
-      
     ],
     options: {
       chart: {
         type: 'area',
-        stacked:false ,
+        stacked: false,
         height: 350,
         zoom: {
           type: 'x',
           enabled: true,
-          autoScaleYaxis: true
+          autoScaleYaxis: true,
         },
         toolbar: {
-          autoSelected: 'zoom'
-        }
+          autoSelected: 'zoom',
+        },
       },
       dataLabels: {
-        enabled: true
+        enabled: false,
       },
       markers: {
         size: 0,
       },
       title: {
-      
-        align: 'left'
+        text: 'Stock Price Movement',
+        align: 'left',
       },
       fill: {
         type: 'gradient',
         gradient: {
-          shadeIntensity: 8,
+          shadeIntensity: 1,
           inverseColors: false,
           opacityFrom: 0.5,
           opacityTo: 0,
-          stops: [0, 90, 100]
+          stops: [0, 90, 100],
         },
       },
       yaxis: {
         labels: {
           formatter: function (val) {
-            return (val / 10000).toFixed(0);
+            return (val / 1000000).toFixed(0);
           },
         },
         title: {
           text: 'Price',
-
-         
         },
       },
       xaxis: {
-        type: 'data',
+        type: 'datetime',
       },
       tooltip: {
-        shared: true,
+        shared: false,
         y: {
           formatter: function (val) {
-            return (val / 1000000).toFixed(0)
-          }
-        }
-      }
+            return (val / 1000000).toFixed(0);
+          },
+        },
+      },
     },
   });
 
-  useEffect(() => {
-    // Any additional logic you might want to execute after rendering goes here
-  }, []);
-
   return (
     <div>
-      <div >
-        <ReactApexChart options={chartData.options} series={chartData.series} type="area" height={350} />
+      <div id="chart">
+        <ReactApexChart options={state.options} series={state.series} type="area" height={350} />
       </div>
       <div id="html-dist"></div>
     </div>
