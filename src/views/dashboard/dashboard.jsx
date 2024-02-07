@@ -4,6 +4,8 @@ import { Card } from "@mui/material";
 import ExpenseBarChart from "./component/barchart";
 import ExpenseLineChart from "./component/linechart";
 import "./component/style.css";
+import ExpensesList from "./component/ExpenseList";
+
 export default function DashBoardPage() {
   return (
     <>
@@ -140,7 +142,7 @@ export default function DashBoardPage() {
 
         <div class=" flex-col-on-small  grid-cols-1 p-4 space-y-8 gap-y-10 lg:gap-8 lg:space-y-0 lg:grid-cols-3">
           
-                <div class="col-span-2 Barchart bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
+                <div class="col-span-2 max-w-screen-xl Linechart bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
                
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
                     <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Monthly Expense </h4>
@@ -156,15 +158,16 @@ export default function DashBoardPage() {
                 </div>
 
             
-                <div class= "  bg-white rounded-md dark:bg-darker "  x-data="{ isOn: false }">
+                <div class= " piechart lg:w-full bg-white rounded-md dark:bg-darker "  x-data="{ isOn: false }">
              
                   <div class="flex items-center justify-between p-4 border-b dark:border-primary">
                     <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Weekly Expense</h4>
                 
                   </div>
                
-                  <div class="relaive  ">
+                  <div class="relaive flex lg:gap-20 flex-col-on-small justify-around lg:pl-11 sm:flex-row pt-10  ">
                     <ExpensePieChart />
+                                        
                   </div>
                 </div>
               </div>

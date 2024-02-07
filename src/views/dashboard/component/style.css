@@ -2175,16 +2175,25 @@ video {
 @media (max-width: 1200px) {
   .flex-col-on-small {
     flex-direction: column;
+    max-width: 100%;
   }
+
+  
+
+  
  
 }
 
 .flex-col-on-small{
   display: flex;
+  max-width: 100%;
+  background-color: #0000;
+
   
  
 }
 
-.Barchart{
+.Linechart{
   width: 100%;
 }
+

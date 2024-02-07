@@ -1,160 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import DashBoardPage from "../views/dashboard/dashboard";
-import '../assets/css/tailwind.css'
+import React from "react";
+import { useState, useEffect, useRef } from "react";
 
-// import { BrowserRouter , Route, Routes} from 'react-router-dom';
-
-
-import ExpenseForm from "../views/addexpense/addExpense";
-import AsideBar from "../component/asidebar";
-import Navbar from "../component/navbar";
-
-//       return JSON.parse(window.localStorage.getItem("dark"));
-//     }
-
-//     return (
-//       !!window.matchMedia &&
-//       window.matchMedia("(prefers-color-scheme: dark)").matches
-//     );
-//   };
-
-//   const setTheme = (value) => {
-//     window.localStorage.setItem("dark", value);
-//   };
-
-//   const getColor = () => {
-//     if (window.localStorage.getItem("color")) {
-//       return window.localStorage.getItem("color");
-//     }
-//     return "cyan";
-//   };
-
-//   const setColors = (color) => {
-//     const root = document.documentElement;
-//     root.style.setProperty("--color-primary", `var(--color-${color})`);
-//     root.style.setProperty("--color-primary-50", `var(--color-${color}-50)`);
-//     root.style.setProperty("--color-primary-100", `var(--color-${color}-100)`);
-//     root.style.setProperty(
-//       "--color-primary-light",
-//       `var(--color-${color}-light)`
-//     );
-//     root.style.setProperty(
-//       "--color-primary-lighter",
-//       `var(--color-${color}-lighter)`
-//     );
-//     root.style.setProperty(
-//       "--color-primary-dark",
-//       `var(--color-${color}-dark)`
-//     );
-//     root.style.setProperty(
-//       "--color-primary-darker",
-//       `var(--color-${color}-darker)`
-//     );
-//     this.selectedColor = color;
-//     window.localStorage.setItem("color", color);
-//     //
-//   };
-
-//   const updateBarChart = (on) => {
-//     const data = {
-//       data: randomData(),
-//       backgroundColor: "rgb(207, 250, 254)",
-//     };
-//     if (on) {
-//       barChart.data.datasets.push(data);
-//       barChart.update();
-//     } else {
-//       barChart.data.datasets.splice(1);
-//       barChart.update();
-//     }
-//   };
-
-//   const updateDoughnutChart = (on) => {
-//     const data = random();
-//     const color = "rgb(207, 250, 254)";
-//     if (on) {
-//       doughnutChart.data.labels.unshift("Seb");
-//       doughnutChart.data.datasets[0].data.unshift(data);
-//       doughnutChart.data.datasets[0].backgroundColor.unshift(color);
-//       doughnutChart.update();
-//     } else {
-//       doughnutChart.data.labels.splice(0, 1);
-//       doughnutChart.data.datasets[0].data.splice(0, 1);
-//       doughnutChart.data.datasets[0].backgroundColor.splice(0, 1);
-//       doughnutChart.update();
-//     }
-//   };
-
-//   const updateLineChart = () => {
-//     lineChart.data.datasets[0].data.reverse();
-//     lineChart.update();
-//   };
-
-//   return {
-//     loading: true,
-//     isDark: getTheme(),
-//     toggleTheme() {
-//       this.isDark = !this.isDark;
-//       setTheme(this.isDark);
-//     },
-//     setLightTheme() {
-//       this.isDark = false;
-//       setTheme(this.isDark);
-//     },
-//     setDarkTheme() {
-//       this.isDark = true;
-//       setTheme(this.isDark);
-//     },
-//     color: getColor(),
-//     selectedColor: "cyan",
-//     setColors,
-//     toggleSidbarMenu() {
-//       this.isSidebarOpen = !this.isSidebarOpen;
-//     },
-//     isSettingsPanelOpen: false,
-//     openSettingsPanel() {
-//       this.isSettingsPanelOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.settingsPanel.focus();
-//       });
-//     },
-//     isNotificationsPanelOpen: false,
-//     openNotificationsPanel() {
-//       this.isNotificationsPanelOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.notificationsPanel.focus();
-//       });
-//     },
-//     isSearchPanelOpen: false,
-//     openSearchPanel() {
-//       this.isSearchPanelOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.searchInput.focus();
-//       });
-//     },
-//     isMobileSubMenuOpen: false,
-//     openMobileSubMenu() {
-//       this.isMobileSubMenuOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.mobileSubMenu.focus();
-//       });
-//     },
-//     isMobileMainMenuOpen: false,
-//     openMobileMainMenu() {
-//       this.isMobileMainMenuOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.mobileMainMenu.focus();
-//       });
-//     },
-//     updateBarChart,
-//     updateDoughnutChart,
-//     updateLineChart,
-//   };
-// };
-const Root = () => {
-
-
-
+export default function Navbar() {
   const loadingRef = useRef(null);
   const [isSettingsPanelOpen, setIsSettingsPanelOpen] = useState(false);
   const [isMobileMainMenuOpen, setMobileMainMenuOpen] = useState(false);
@@ -288,123 +135,18 @@ const Root = () => {
     setActiveTab(tab);
   };
 
- 
-
-  
-
   return (
     <>
       <div className={isDark ? "dark" : ""}>
-        <div className="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
+        <div className="flex w-full antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
           <div
             ref={loadingRef}
             class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker"
           >
             Loading.....
           </div>
-          <aside className="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block">
-            <div className="flex flex-col h-full">
-              <nav
-                aria-label="Main"
-                className="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto"
-              >
-                <div x-data="{ isActive: true, open: true}">
-                 
-                  <a to="/"
-                   className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    role="button"
-                    aria-haspopup="true"
-                   >
-                    <span aria-hidden="true">
-                      <svg
-                        className="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                        />
-                      </svg>
-                    </span>
-                    <span className="ml-2 text-sm"> Dashboard</span>
-                    <span className="ml-auto" aria-hidden="true">
-                      <svg
-                        className="w-4 h-4 transition-transform transform"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </span>
-                    </a>
-                </div>
 
-                {/* Repeat the structure for other navigation items */}
-
-                <div x-data="{ isActive: false, open: false }">
-                  <a href=""
-                    className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
-                    role="button"
-                    aria-haspopup="true"
-                  >
-                    <span aria-hidden="true">
-                      <svg
-                        className="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                        />
-                      </svg>
-                    </span>
-                    <span className="ml-2 text-sm">Add Expense</span>
-                    <span aria-hidden="true" className="ml-auto">
-                      <svg
-                        className="w-4 h-4 transition-transform transform"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </span>
-                  </a>
-                </div>
-
-                {/* Repeat the structure for other navigation items */}
-
-                {/* ... Additional navigation items ... */}
-              </nav>
-            </div>
-          </aside>
-      
-      
-          <div class="flex-1 h-full ">
-            <header className="relative bg-white dark:bg-darker w-full">
+          <header className="relative bg-white dark:bg-darker w-full">
             <div className="flex items-center justify-between p-2 border-b dark:border-primary-darker">
               {/* Mobile menu button */}
               <button
@@ -1398,46 +1140,8 @@ const Root = () => {
               </div>
             </section>
           )}
-        
-
-
-            <main className="h-screen bg-white dark:bg-darker ">
-     <DashBoardPage/>
-     {/* <AddExpense/> */}
-     {/* <ExpenseForm/> */}  
-     
-   
-
-      {/* Main footer */}
-      <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
-        <div>ExP &copy; 2024</div>
-        <div>
-          Made by
-          <a href="#" target="_blank" className="text-blue-500 hover:underline">
-            HackEath
-          </a>
-        </div>
-      </footer>
-    </main>
-
-            
-
-
-
-
-
-
-
-
-
-
-          </div>
-
-     
         </div>
       </div>
     </>
   );
-};
-
-export default Root;
+}

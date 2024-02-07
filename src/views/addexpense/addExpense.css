@@ -1,0 +1,7 @@
+.parent-container {
+    transition: filter 0.3s ease-in-out;
+  }
+  
+  .blurred {
+    filter: grayscale(100%) blur(5px);
+  }
