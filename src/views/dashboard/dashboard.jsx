@@ -4,7 +4,7 @@ import { Card } from "@mui/material";
 import ExpenseBarChart from "./component/barchart";
 import ExpenseLineChart from "./component/linechart";
 import "./component/style.css";
-import ExpensesList from "./component/ExpenseList";
+
 import ApexChart from "./component/candleStick";
 
 export default function DashBoardPage() {
