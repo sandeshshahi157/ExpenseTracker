@@ -82,7 +82,7 @@ const ExpenseForm = () => {
 
             <div className="mb-6">
               <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Upload Bill
+                Upload Bill image
               </label>
               <input
                 type="file"
