@@ -1,0 +1,47 @@
+
+.error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+
+.max-w-md {
+    max-width: 28rem; /* Set the maximum width for the image container */
+}
+
+.object-cover {
+    object-fit: cover; /* Ensure the image covers the container */
+}
+
+.object-center {
+    object-position: center; /* Center the image within the container */
+}
+
+/* Adjust margin for smaller screens */
+@media (max-width: 840px) {
+    .lg:mt-40 {
+        margin-top: 0; /* Remove top margin on smaller screens */
+    }
+    img{
+
+        position: absolute;
+        width: 100%;
+
+    }
+    .mainComp{
+        position: absolute;
+        background-color: white;
+        margin-top:12.8rem;
+        width: 100%;
+    }
+
+}
+
+.mainComp{
+    width: 100%;
+}
+.mainComp form
+{
+    width: 100%;
+}

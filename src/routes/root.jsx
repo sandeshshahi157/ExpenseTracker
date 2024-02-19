@@ -7,6 +7,7 @@ import "../assets/css/tailwind.css";
 import ExpenseForm from "../views/addexpense/addExpense";
 import AsideBar from "../component/asidebar";
 import Navbar from "../component/navbar";
+import LandingPage from "../views/landingpage/landingpage";
 
 //       return JSON.parse(window.localStorage.getItem("dark"));
 //     }
@@ -1396,9 +1397,10 @@ const Root = () => {
             )}
 
             <main className="h-screen bg-white dark:bg-darker ">
-              <DashBoardPage />
+              {/* <DashBoardPage /> */}
               {/* <AddExpense/> */}
               {/* <ExpenseForm/> */}
+           
 
               {/* Main footer */}
               <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
