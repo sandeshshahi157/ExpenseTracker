@@ -19,6 +19,7 @@
     "@mui/styled-engine-sc": "^6.0.0-alpha.10",
     "ag-charts-react": "^9.0.1",
     "apexcharts": "^3.45.2",
+    "axios": "^1.6.7",
     "chart.js": "^4.4.1",
     "flowbite": "^2.2.1",
     "primereact": "^10.3.3",

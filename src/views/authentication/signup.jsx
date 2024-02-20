@@ -120,7 +120,7 @@ const SignUpForm = () => {
               </h1>
 
               <form
-                action="signupProcess.jsp"
+                action="#"
                 onsubmit={validateForm}
                 class="mt-8 grid grid-cols-6 gap-6"
                 method="post"
@@ -136,7 +136,7 @@ const SignUpForm = () => {
                     type="text"
                     id="FirstName"
                     name="first_name"
-                    class="text-center focus:outline-none bg-gray-100 text-md h-11 mt-1 w-full rounded-md text-gray-700 shadow-sm"
+                    class="text-center focus:outline-none bg-gray-100 text-md h-11 mt-1 w-full rounded-md border-gray-200 text-md text-gray-700 shadow-sm"
                   />
                 </div>
 

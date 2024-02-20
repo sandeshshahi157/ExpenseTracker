@@ -8,6 +8,9 @@ import ExpenseForm from "../views/addexpense/addExpense";
 import AsideBar from "../component/asidebar";
 import Navbar from "../component/navbar";
 import LandingPage from "../views/landingpage/landingpage";
+import SettingsPage from "../views/settings/setting";
+import ProfilePage from "../views/profilepage/profilepage";
+import WalletPage from "../views/wallet/wallet";
 
 //       return JSON.parse(window.localStorage.getItem("dark"));
 //     }
@@ -1397,12 +1400,14 @@ const Root = () => {
             )}
 
             <main className="h-screen bg-white dark:bg-darker ">
-              {/* <DashBoardPage /> */}
+              <DashBoardPage />
               {/* <AddExpense/> */}
               {/* <ExpenseForm/> */}
            
-
+              {/* <SettingsPage/> */}
               {/* Main footer */}
+              {/* <ProfilePage/> */}
+          {/* <WalletPage/> */}
               <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
                 <div>ExP &copy; 2024</div>
                 <div>
