@@ -1,24 +1,53 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Router, Routes, Route, createBrowserRouter} from 'react-router-dom';
 import Root from './root';
 import ExpenseForm from '../views/addexpense/addExpense';
 import DashBoardPage from '../views/dashboard/dashboard';
+import WalletPage from '../views/wallet/wallet';
+import ProfilePage from '../views/profilepage/profilepage';
+import SettingsPage from '../views/settings/setting';
 
-const RoutesPage = () => {
-  return (
-  <BrowserRouter>
+const router = createBrowserRouter([
+  {
+    path: "",
+    element: <Root/>,
+   
+    children: [
+      {
+        path:'/',
+        element:<DashBoardPage/>,
 
-      <Routes>
-        
-        <Route path="/dashboard" Component={<DashBoardPage/>} />
-        <Route path="/addexpense" Component={<ExpenseForm />} />
-     
-      </Routes>
+      },
+      {
+        path:'/dashboard',
+        element:<DashBoardPage/>,
 
-  </BrowserRouter>
+      },
+      
 
-  );
-};
+      {
+        path: "/addexpense",
+        element: <ExpenseForm/>
+      },
+      {
+        path:"/wallet",
+        element:<WalletPage/>
+      },
+       
+       {
+        path:'/profile',
+         element:<ProfilePage/>
+       },
+       {
+         path:'/setting',
+         element:<SettingsPage/>
+       }
+    ]
+  },
+]);
 
-export default RoutesPage;
+export default router;
+
+
+

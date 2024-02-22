@@ -11,6 +11,8 @@ import LandingPage from "../views/landingpage/landingpage";
 import SettingsPage from "../views/settings/setting";
 import ProfilePage from "../views/profilepage/profilepage";
 import WalletPage from "../views/wallet/wallet";
+import { Link, Outlet } from "react-router-dom";
+import MainPage from "./mainPage";
 
 //       return JSON.parse(window.localStorage.getItem("dark"));
 //     }
@@ -305,8 +307,8 @@ const Root = () => {
                 className="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto"
               >
                 <div x-data="{ isActive: true, open: true}">
-                  <a
-                    to="/"
+                  <Link
+                    to={"/dashboard"}
                     className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                     role="button"
                     aria-haspopup="true"
@@ -344,14 +346,14 @@ const Root = () => {
                         />
                       </svg>
                     </span>
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Repeat the structure for other navigation items */}
 
                 <div x-data="{ isActive: false, open: false }">
-                  <a
-                    href=""
+                  <Link
+                    to={"/addexpense"}
                     className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                     role="button"
                     aria-haspopup="true"
@@ -389,7 +391,7 @@ const Root = () => {
                         />
                       </svg>
                     </span>
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Repeat the structure for other navigation items */}
@@ -1400,7 +1402,7 @@ const Root = () => {
             )}
 
             <main className="h-screen bg-white dark:bg-darker ">
-              <DashBoardPage />
+              <Outlet/>
               {/* <AddExpense/> */}
               {/* <ExpenseForm/> */}
            
@@ -1408,6 +1410,7 @@ const Root = () => {
               {/* Main footer */}
               {/* <ProfilePage/> */}
           {/* <WalletPage/> */}
+         
               <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
                 <div>ExP &copy; 2024</div>
                 <div>
