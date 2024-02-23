@@ -1,6 +1,6 @@
 // App.js
 import React from 'react';
-import { Router, Routes, Route, createBrowserRouter} from 'react-router-dom';
+import { createBrowserRouter} from 'react-router-dom';
 import Root from './root';
 import ExpenseForm from '../views/addexpense/addExpense';
 import DashBoardPage from '../views/dashboard/dashboard';
