@@ -47,7 +47,7 @@ const ProfilePage = () => {
                   href=""
                   className="text-gray-500 dark:text-gray-300 hover:text-gray-900 hover:bg-gray-100 rounded transition duration-150 ease-in font-medium text-sm text-center w-full py-3"
                 >
-                  Twitter
+                  Twitter user
                 </a>
                 <a
                   href=""
