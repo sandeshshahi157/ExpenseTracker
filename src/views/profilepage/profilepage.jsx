@@ -22,7 +22,7 @@ const ProfilePage = () => {
 
             <div className="mt-16">
               <h1 className="font-bold dark:text-gray-300 text-center text-3xl text-gray-900">
-                Hackeath Software
+                Hackeath Software company
               </h1>
               <p className="text-center text-sm text-gray-400 font-medium">Software company</p>
               <p>
