@@ -83,6 +83,7 @@ const ProfilePage = () => {
 
                   <a
                     href="#"
+                  
                     className="dark:text-gray-300 w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 block hover:bg-gray-100 transition duration-150"
                   >
                     <img
