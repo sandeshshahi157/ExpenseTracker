@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link, Outlet } from "react-router-dom";
+
 
 const SettingsPage = () => {
   return (
@@ -22,30 +24,19 @@ const SettingsPage = () => {
 
         <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
           <nav className="flex space-x-2 lg:flex-col lg:space-x-0 lg:space-y-1">
-            <a
+            <Link
               className="inline-flex items-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 px-4 py-2 hover:bg-transparent hover:underline justify-start"
-              href="profile.html"
+              to={"/profile"}
             >
               Profile
-            </a>
-            <a
+            </Link>
+            <Link
               className="inline-flex items-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 px-4 py-2 bg-muted hover:bg-muted justify-start"
-              href="wallet.html"
+             to={"/wallet"}
             >
               Account
-            </a>
-            <a
-              className="inline-flex items-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 px-4 py-2 hover:bg-transparent hover:underline justify-start"
-              href="#"
-            >
-              Notifications
-            </a>
-            <a
-              className="inline-flex items-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:text-accent-foreground h-9 px-4 py-2 hover:bg-transparent hover:underline justify-start"
-              href="#"
-            >
-              Display
-            </a>
+            </Link>
+          
           </nav>
 
           <div className="flex-1 lg:max-w-2xl">

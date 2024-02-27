@@ -1,161 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import DashBoardPage from "../views/dashboard/dashboard";
 import "../assets/css/tailwind.css";
-
-// import { BrowserRouter , Route, Routes} from 'react-router-dom';
-
-import ExpenseForm from "../views/addexpense/addExpense";
-import AsideBar from "../component/asidebar";
-import Navbar from "../component/navbar";
-import LandingPage from "../views/landingpage/landingpage";
-import SettingsPage from "../views/settings/setting";
-import ProfilePage from "../views/profilepage/profilepage";
-import WalletPage from "../views/wallet/wallet";
 import { Link, Outlet } from "react-router-dom";
-import MainPage from "./mainPage";
 
-//       return JSON.parse(window.localStorage.getItem("dark"));
-//     }
 
-//     return (
-//       !!window.matchMedia &&
-//       window.matchMedia("(prefers-color-scheme: dark)").matches
-//     );
-//   };
-
-//   const setTheme = (value) => {
-//     window.localStorage.setItem("dark", value);
-//   };
-
-//   const getColor = () => {
-//     if (window.localStorage.getItem("color")) {
-//       return window.localStorage.getItem("color");
-//     }
-//     return "cyan";
-//   };
-
-//   const setColors = (color) => {
-//     const root = document.documentElement;
-//     root.style.setProperty("--color-primary", `var(--color-${color})`);
-//     root.style.setProperty("--color-primary-50", `var(--color-${color}-50)`);
-//     root.style.setProperty("--color-primary-100", `var(--color-${color}-100)`);
-//     root.style.setProperty(
-//       "--color-primary-light",
-//       `var(--color-${color}-light)`
-//     );
-//     root.style.setProperty(
-//       "--color-primary-lighter",
-//       `var(--color-${color}-lighter)`
-//     );
-//     root.style.setProperty(
-//       "--color-primary-dark",
-//       `var(--color-${color}-dark)`
-//     );
-//     root.style.setProperty(
-//       "--color-primary-darker",
-//       `var(--color-${color}-darker)`
-//     );
-//     this.selectedColor = color;
-//     window.localStorage.setItem("color", color);
-//     //
-//   };
-
-//   const updateBarChart = (on) => {
-//     const data = {
-//       data: randomData(),
-//       backgroundColor: "rgb(207, 250, 254)",
-//     };
-//     if (on) {
-//       barChart.data.datasets.push(data);
-//       barChart.update();
-//     } else {
-//       barChart.data.datasets.splice(1);
-//       barChart.update();
-//     }
-//   };
-
-//   const updateDoughnutChart = (on) => {
-//     const data = random();
-//     const color = "rgb(207, 250, 254)";
-//     if (on) {
-//       doughnutChart.data.labels.unshift("Seb");
-//       doughnutChart.data.datasets[0].data.unshift(data);
-//       doughnutChart.data.datasets[0].backgroundColor.unshift(color);
-//       doughnutChart.update();
-//     } else {
-//       doughnutChart.data.labels.splice(0, 1);
-//       doughnutChart.data.datasets[0].data.splice(0, 1);
-//       doughnutChart.data.datasets[0].backgroundColor.splice(0, 1);
-//       doughnutChart.update();
-//     }
-//   };
-
-//   const updateLineChart = () => {
-//     lineChart.data.datasets[0].data.reverse();
-//     lineChart.update();
-//   };
-
-//   return {
-//     loading: true,
-//     isDark: getTheme(),
-//     toggleTheme() {
-//       this.isDark = !this.isDark;
-//       setTheme(this.isDark);
-//     },
-//     setLightTheme() {
-//       this.isDark = false;
-//       setTheme(this.isDark);
-//     },
-//     setDarkTheme() {
-//       this.isDark = true;
-//       setTheme(this.isDark);
-//     },
-//     color: getColor(),
-//     selectedColor: "cyan",
-//     setColors,
-//     toggleSidbarMenu() {
-//       this.isSidebarOpen = !this.isSidebarOpen;
-//     },
-//     isSettingsPanelOpen: false,
-//     openSettingsPanel() {
-//       this.isSettingsPanelOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.settingsPanel.focus();
-//       });
-//     },
-//     isNotificationsPanelOpen: false,
-//     openNotificationsPanel() {
-//       this.isNotificationsPanelOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.notificationsPanel.focus();
-//       });
-//     },
-//     isSearchPanelOpen: false,
-//     openSearchPanel() {
-//       this.isSearchPanelOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.searchInput.focus();
-//       });
-//     },
-//     isMobileSubMenuOpen: false,
-//     openMobileSubMenu() {
-//       this.isMobileSubMenuOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.mobileSubMenu.focus();
-//       });
-//     },
-//     isMobileMainMenuOpen: false,
-//     openMobileMainMenu() {
-//       this.isMobileMainMenuOpen = true;
-//       this.$nextTick(() => {
-//         this.$refs.mobileMainMenu.focus();
-//       });
-//     },
-//     updateBarChart,
-//     updateDoughnutChart,
-//     updateLineChart,
-//   };
-// };
 const Root = () => {
   const loadingRef = useRef(null);
   const [isSettingsPanelOpen, setIsSettingsPanelOpen] = useState(false);
@@ -778,27 +625,27 @@ const Root = () => {
                             role="menu"
                           >
                             {/* User dropdown menu items */}
-                            <a
-                              href="#"
+                            <Link
+                              to={'/profile'}
                               role="menuitem"
                               className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                             >
                               Your Profile
-                            </a>
-                            <a
-                              href="#"
+                            </Link>
+                            <Link
+                              to={'/setting'}
                               role="menuitem"
                               className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                             >
                               Settings
-                            </a>
-                            <a
-                              href="#"
+                            </Link>
+                            <Link
+                              to={"/dashboard"}
                               role="menuitem"
                               className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                             >
                               Logout
-                            </a>
+                            </Link>
                           </div>
                         )}
                       </div>
@@ -984,27 +831,27 @@ const Root = () => {
                       }`}
                     >
                       {/* User menu items */}
-                      <a
-                        href="#"
+                      <Link
+                        to={"/profile"}
                         role="menuitem"
                         className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                       >
                         Your Profile
-                      </a>
-                      <a
-                        href="#"
+                      </Link>
+                      <Link
+                        to={"/setting"}
                         role="menuitem"
                         className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                       >
                         Settings
-                      </a>
-                      <a
-                        href="#"
+                      </Link>
+                      <Link
+                        to={'/dashboard'}
                         role="menuitem"
                         className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                       >
                         Logout
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </nav>
@@ -1021,8 +868,8 @@ const Root = () => {
                     className="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto"
                   >
                     <div x-data="{ isActive: true, open: true}">
-                      <a
-                        href="#"
+                      <Link
+                        to={'/dashboard'}
                         className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                         role="button"
                         aria-haspopup="true"
@@ -1060,14 +907,14 @@ const Root = () => {
                             />
                           </svg>
                         </span>
-                      </a>
+                      </Link>
                     </div>
 
                     {/* Repeat the structure for other navigation items */}
 
                     <div x-data="{ isActive: false, open: false }">
-                      <a
-                        href="#"
+                      <Link
+                        to={"/addexpense"}
                         className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                         role="button"
                         aria-haspopup="true"
@@ -1105,7 +952,7 @@ const Root = () => {
                             />
                           </svg>
                         </span>
-                      </a>
+                      </Link>
                     </div>
 
                     {/* Repeat the structure for other navigation items */}
@@ -1539,13 +1386,13 @@ const Root = () => {
                         <div className="flex-shrink-0">
                           <img
                             className="w-10 h-10 rounded-lg"
-                            src="build/images/cover-3.jpg"
-                            alt="K-WD Dashboard"
+                            src=""
+                            alt="dashboard"
                           />
                         </div>
                         <div className="flex-1 max-w-xs overflow-hidden">
                           <h4 className="text-sm font-semibold text-gray-600 dark:text-light">
-                            K-WD Dashboard
+                           Expense Tracker
                           </h4>
                           <p className="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
                             Lorem ipsum dolor, sit amet consectetur adipisicing
