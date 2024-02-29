@@ -25,10 +25,6 @@ const Root = () => {
       loadingRef.current.classList.add("hidden");
     }
 
-    // Mimic the setColors(color) behavior
-    // Replace the following line with your actual color-setting logic
-    // e.g., document.documentElement.style.setProperty('--your-color-variable', color);
-
     // Example color-setting logic
 
     const body = document.body;
