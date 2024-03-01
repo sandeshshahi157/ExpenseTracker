@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import "../assets/css/tailwind.css";
 import { Link, Outlet } from "react-router-dom";
 
-
 const Root = () => {
   const loadingRef = useRef(null);
   const [isSettingsPanelOpen, setIsSettingsPanelOpen] = useState(false);
@@ -194,7 +193,6 @@ const Root = () => {
 
                 {/* Repeat the structure for other navigation items */}
 
-             
                 <div x-data="{ isActive: false, open: false }">
                   <Link
                     to={"/addexpense"}
@@ -239,28 +237,28 @@ const Root = () => {
                 </div>
                 <div x-data="{ isActive: false, open: false }">
                   <Link
-                    to={"/wallet"}
+                    to={"/expenseview"}
                     className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                     role="button"
                     aria-haspopup="true"
                   >
                     <span aria-hidden="true">
-                                        <svg
-                                            class="w-5 h-5"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
-                                            />
-                                        </svg>
-                                    </span>
-                    <span className="ml-2 text-sm">Wallet</span>
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </span>
+                    <span className="ml-2 text-sm">My Expense</span>
                     <span aria-hidden="true" className="ml-auto">
                       <svg
                         className="w-4 h-4 transition-transform transform"
@@ -286,22 +284,22 @@ const Root = () => {
                     role="button"
                     aria-haspopup="true"
                   >
-                         <span aria-hidden="true">
-                                        <svg
-                                            class="w-5 h-5"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                            />
-                                        </svg>
-                                    </span>
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        />
+                      </svg>
+                    </span>
                     <span className="ml-2 text-sm">Profile</span>
                     <span aria-hidden="true" className="ml-auto">
                       <svg
@@ -328,22 +326,22 @@ const Root = () => {
                     role="button"
                     aria-haspopup="true"
                   >
-                       <span aria-hidden="true">
-                                        <svg
-                                            class="w-5 h-5"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                                            />
-                                        </svg>
-                                    </span>
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                        />
+                      </svg>
+                    </span>
                     <span className="ml-2 text-sm">Settings</span>
                     <span aria-hidden="true" className="ml-auto">
                       <svg
@@ -364,7 +362,6 @@ const Root = () => {
                   </Link>
                 </div>
 
-
                 <div x-data="{ isActive: false, open: false }">
                   <Link
                     to={"/"}
@@ -373,12 +370,21 @@ const Root = () => {
                     aria-haspopup="true"
                   >
                     <span aria-hidden="true">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M14 5l7 7-7 7"></path>
-                                        <path d="M2 12h19"></path>
-                                        </svg>
-
-                                    </span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M14 5l7 7-7 7"></path>
+                        <path d="M2 12h19"></path>
+                      </svg>
+                    </span>
                     <span className="ml-2 text-sm">Logout</span>
                     <span aria-hidden="true" className="ml-auto">
                       <svg
@@ -622,14 +628,14 @@ const Root = () => {
                           >
                             {/* User dropdown menu items */}
                             <Link
-                              to={'/profile'}
+                              to={"/profile"}
                               role="menuitem"
                               className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                             >
                               Your Profile
                             </Link>
                             <Link
-                              to={'/setting'}
+                              to={"/setting"}
                               role="menuitem"
                               className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                             >
@@ -842,7 +848,7 @@ const Root = () => {
                         Settings
                       </Link>
                       <Link
-                        to={'/dashboard'}
+                        to={"/dashboard"}
                         role="menuitem"
                         className="block px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100 dark:text-light dark:hover:bg-primary"
                       >
@@ -865,7 +871,7 @@ const Root = () => {
                   >
                     <div x-data="{ isActive: true, open: true}">
                       <Link
-                        to={'/dashboard'}
+                        to={"/dashboard"}
                         className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                         role="button"
                         aria-haspopup="true"
@@ -1388,7 +1394,7 @@ const Root = () => {
                         </div>
                         <div className="flex-1 max-w-xs overflow-hidden">
                           <h4 className="text-sm font-semibold text-gray-600 dark:text-light">
-                           Expense Tracker
+                            Expense Tracker
                           </h4>
                           <p className="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
                             Lorem ipsum dolor, sit amet consectetur adipisicing
@@ -1407,15 +1413,15 @@ const Root = () => {
             )}
 
             <main className="h-screen bg-white dark:bg-darker ">
-              <Outlet/>
+              <Outlet />
               {/* <AddExpense/> */}
               {/* <ExpenseForm/> */}
-           
+
               {/* <SettingsPage/> */}
               {/* Main footer */}
               {/* <ProfilePage/> */}
-          {/* <WalletPage/> */}
-         
+              {/* <WalletPage/> */}
+
               <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
                 <div>ExP &copy; 2024</div>
                 <div>
