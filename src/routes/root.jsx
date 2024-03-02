@@ -258,7 +258,7 @@ const Root = () => {
                         />
                       </svg>
                     </span>
-                    <span className="ml-2 text-sm">My Expense</span>
+                    <span className="ml-2 text-sm">My Expenses</span>
                     <span aria-hidden="true" className="ml-auto">
                       <svg
                         className="w-4 h-4 transition-transform transform"
