@@ -39,10 +39,7 @@ const ExpenseLineChart = () => {
       markers: {
         size: 0,
       },
-      title: {
-        text: 'Stock Price Movement',
-        align: 'left',
-      },
+   
       fill: {
         type: 'gradient',
         gradient: {
