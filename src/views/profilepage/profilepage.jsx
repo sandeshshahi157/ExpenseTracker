@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const ProfilePage = () => {
   return (
@@ -24,7 +24,9 @@ const ProfilePage = () => {
               <h1 className="font-bold dark:text-gray-300 text-center text-3xl text-gray-900">
                 Hackeath Software company
               </h1>
-              <p className="text-center text-sm text-gray-400 font-medium">Software company</p>
+              <p className="text-center text-sm text-gray-400 font-medium">
+                Software company
+              </p>
               <p>
                 <span></span>
               </p>
@@ -65,74 +67,21 @@ const ProfilePage = () => {
 
               <div className="w-full dark:text-gray-300">
                 <h3 className="dark:text-gray-300 font-medium text-gray-900 text-left px-6">
-                  Recent activities
+                  Your activities
                 </h3>
-                <div className="dark:text-gray-300 mt-5 w-full flex flex-col items-center overflow-hidden text-sm">
-                  <a
-                    href="#"
-                    className="dark:text-gray-300 w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 block hover:bg-gray-100 transition duration-150"
-                  >
-                    <img
-                      src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                      alt=""
-                      className="rounded-full h-6 shadow-md inline-block mr-2"
-                    />
-                    Updated his status
-                    <span className="dark:text-gray-300 text-gray-500 text-xs">24 min ago</span>
-                  </a>
 
-                  <a
-                    href="#"
-                  
-                    className="dark:text-gray-300 w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 block hover:bg-gray-100 transition duration-150"
-                  >
-                    <img
-                      src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                      alt=""
-                      className="rounded-full h-6 shadow-md inline-block mr-2"
-                    />
-                    Added new profile picture
-                    <span className="dark:text-gray-300 text-gray-500 text-xs">42 min ago</span>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="dark:text-gray-300 w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 block hover:bg-gray-100 transition duration-150"
-                  >
-                    <img
-                      src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                      alt=""
-                      className="rounded-full h-6 shadow-md inline-block mr-2"
-                    />
-                    Posted new article in <span className="dark:text-gray-300 font-bold">#Web Dev</span>
-                    <span className="dark:text-gray-300 text-gray-500 text-xs">49 min ago</span>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="dark:text-gray-300 w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 block hover:bg-gray-100 transition duration-150"
-                  >
-                    <img
-                      src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                      alt=""
-                      className="rounded-full h-6 shadow-md inline-block mr-2"
-                    />
-                    Edited website settings
-                    <span className="dark:text-gray-300 text-gray-500 text-xs">1 day ago</span>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="dark:text-gray-300 w-full border-t border-gray-100 text-gray-600 py-4 pl-6 pr-3 block hover:bg-gray-100 transition duration-150 overflow-hidden"
-                  >
-                    <img
-                      src="https://avatars0.githubusercontent.com/u/35900628?v=4"
-                      alt=""
-                      className="rounded-full h-6 shadow-md inline-block mr-2"
-                    />
-                    Added new rank
-                    <span className="dark:text-gray-300 text-gray-500 text-xs">5 days ago</span>
-                  </a>
+                <div class=" card pt-5">
+                  <ul class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-90">
+                    <li class="bg-white rounded-md p-4 shadow-md flex items-center">
+                      <img src="" alt=" Icon" class="w-8 rounded-xl h-8 mr-2" />
+                      <div>
+                        <p class="text-lg font-semibold text-gray-800">
+                          Feb 2023
+                        </p>
+                        <p class="text-gray-600">Rs.500</p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
