@@ -54,7 +54,7 @@ export default function DashBoardPage() {
             <div>
               <h6 class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                 Weekly
-                ++
+                
               </h6>
               <span class="text-xl font-semibold">50,021</span>
               <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">

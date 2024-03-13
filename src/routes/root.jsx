@@ -19,20 +19,19 @@ const Root = () => {
   const [color, setColor] = useState("defaultColor");
 
   useEffect(() => {
-    // Mimic the $refs.loading.classList.add('hidden') behavior
+  
     if (loadingRef.current) {
       loadingRef.current.classList.add("hidden");
     }
 
-    // Example color-setting logic
+    
 
     const body = document.body;
     body.style.backgroundColor = color;
 
-    // Additional cleanup logic if needed
+   
     return () => {
-      // Cleanup logic when the component unmounts or when color changes
-      // For example, remove the color setting applied above
+ 
       body.style.backgroundColor = "";
     };
   }, [color]);
@@ -104,15 +103,15 @@ const Root = () => {
 
   const toggleTheme = () => {
     setIsDark(!isDark);
-    // Add your theme toggle logic here
+
   };
   const setLightTheme = () => {
-    // Implement your light theme logic
+  
     setIsDark(false);
   };
 
   const setDarkTheme = () => {
-    // Implement your dark theme logic
+   
     setIsDark(true);
   };
 
@@ -191,8 +190,7 @@ const Root = () => {
                   </Link>
                 </div>
 
-                {/* Repeat the structure for other navigation items */}
-
+          
                 <div x-data="{ isActive: false, open: false }">
                   <Link
                     to={"/addexpense"}
@@ -405,9 +403,7 @@ const Root = () => {
                   </Link>
                 </div>
 
-                {/* Repeat the structure for other navigation items */}
-
-                {/* ... Additional navigation items ... */}
+              
               </nav>
             </div>
           </aside>
@@ -415,14 +411,14 @@ const Root = () => {
           <div class="flex-1 h-full ">
             <header className="relative bg-white dark:bg-darker w-full">
               <div className="flex items-center justify-between p-2 border-b dark:border-primary-darker">
-                {/* Mobile menu button */}
+            
                 <button
                   onClick={() => setMobileMainMenuOpen(!isMobileMainMenuOpen)}
                   className="p-1 transition-colors duration-200 rounded-md text-primary-lighter bg-primary-50 hover:text-primary hover:bg-primary-100 dark:hover:text-light dark:hover:bg-primary-dark dark:bg-dark md:hidden focus:outline-none focus:ring"
                 >
                   <span className="sr-only">Open main menu</span>
                   <span aria-hidden="true">
-                    {/* Mobile menu icon */}
+                
                     <svg
                       className="w-8 h-8"
                       xmlns="http://www.w3.org/2000/svg"
@@ -440,12 +436,12 @@ const Root = () => {
                   </span>
                 </button>
 
-                {/* Brand */}
+            
                 <a
                   href="#"
                   className="inline-block text-2xl font-bold tracking-wider font-mono text-primary-dark dark:text-light"
                 >
-                  ExP
+                  Expense Tracker
                 </a>
 
                 {/* Mobile sub menu button */}
