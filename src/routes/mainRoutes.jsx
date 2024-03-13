@@ -8,6 +8,8 @@ import DashBoardPage from '../views/dashboard/dashboard';
 import ProfilePage from '../views/profilepage/profilepage';
 import SettingsPage from '../views/settings/setting';
 import ExpenseView from '../views/Expensesview/expenseview';
+import LoginForm from '../views/authentication/login';
+import SignUpForm from '../views/authentication/signup';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,7 @@ const router = createBrowserRouter([
          path:'/setting',
          element:<SettingsPage/>
        }
+       
     ]
   },
 ]);
