@@ -14,9 +14,9 @@ const ProfilePage = () => {
           <div className="dark:text-gray-300 relative w-5/6 md:w-5/6 lg:w-4/6 xl:w-3/6 mx-auto">
             <div className="flex justify-center">
               <img
-                src="https://avatars0.githubusercontent.com/u/35900628?v=4"
+                src="src/assets/logo_d.png"
                 alt=""
-                className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"
+                className="rounded-full mx-auto absolute -top-20 w-36 h-36 shadow-md border-4 border-white transition duration-200 transform hover:scale-110"
               />
             </div>
 

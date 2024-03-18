@@ -1,20 +1,23 @@
 import React from "react";
 import '../landingpage/landingpage.css'
+import { Link } from "react-router-dom";
 const LandingPage = () => {
 
 
   return (
+
+  
     <div className="font-mono h-screen w-screen body">
-   
       <header className="bg-black text-white py-4">
         <div className="flex Header items-center justify-content-space-around">
           <h1 className="text-2xl font-semibold pt-5">Expense Tracker</h1>
           <div className="mt-4 flex gap-8 ">
             <button className="w-28 h-10 shadow-md shadow-gray-500/50 rounded-lg bg-black">
-              <a href="/register">Sign Up</a>
+              <Link to={"/"}
+              >Sign Up</Link>
             </button>
             <button className="w-28 h-10 shadow-md shadow-gray-500/50 rounded-lg bg-purple-400">
-              <a href="/login">Login</a>
+              <a href="/">Login</a>
             </button>
           </div>
         </div>

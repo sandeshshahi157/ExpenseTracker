@@ -14,7 +14,7 @@ import SignUpForm from '../views/authentication/signup';
 const router = createBrowserRouter([
   {
     path: "",
-    element: <Root/>,
+    element: <Root/> ,
    
     children: [
       {

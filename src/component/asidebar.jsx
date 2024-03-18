@@ -1,162 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
+import { Link, Outlet } from "react-router-dom";
 
 export default function AsideBar(){
-  const loadingRef = useRef(null);
-  const [isSettingsPanelOpen, setIsSettingsPanelOpen] = useState(false);
-  const [isMobileMainMenuOpen, setMobileMainMenuOpen] = useState(false);
-  const [isMobileSubMenuOpen, setMobileSubMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [isSubOpen, setSubopen] = useState(false);
-  const userMenuRef = useRef(null);
-  const [isNotificationsPanelOpen, setIsNotificationsPanelOpen] =
-    useState(false);
-  const [activeTab, setActiveTab] = useState("action");
-  const [isSearchPanelOpen, setIsSearchPanelOpen] = useState(false);
-  const searchInputRef = useRef(null);
-  const [color, setColor] = useState("defaultColor");
 
-  useEffect(() => {
-    // Mimic the $refs.loading.classList.add('hidden') behavior
-    if (loadingRef.current) {
-      loadingRef.current.classList.add("hidden");
-    }
-
-    // Mimic the setColors(color) behavior
-    // Replace the following line with your actual color-setting logic
-    // e.g., document.documentElement.style.setProperty('--your-color-variable', color);
-
-    // Example color-setting logic
-
-    const body = document.body;
-    body.style.backgroundColor = color;
-
-    // Additional cleanup logic if needed
-    return () => {
-      // Cleanup logic when the component unmounts or when color changes
-      // For example, remove the color setting applied above
-      body.style.backgroundColor = "";
-    };
-  }, [color]);
-
-  const closeSearchPanel = () => {
-    setIsSearchPanelOpen(false);
-  };
-
-  const handleEscapeKey = (event) => {
-    if (event.key === "Escape") {
-      closeSearchPanel();
-    }
-  };
-
-  const getTheme = () => {
-    if (window.localStorage.getItem("dark")) {
-      return JSON.parse(window.localStorage.getItem("dark"));
-    }
-
-    return (
-      !!window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    );
-  };
-
-  const setTheme = (value) => {
-    window.localStorage.setItem("dark", value);
-  };
-
-  const getColor = () => {
-    if (window.localStorage.getItem("color")) {
-      return window.localStorage.getItem("color");
-    }
-    return "cyan";
-  };
-
-  const setColors = (color) => {
-    const root = document.documentElement;
-    root.style.setProperty("--color-primary", `var(--color-${color})`);
-    root.style.setProperty("--color-primary-50", `var(--color-${color}-50)`);
-    root.style.setProperty("--color-primary-100", `var(--color-${color}-100)`);
-    root.style.setProperty(
-      "--color-primary-light",
-      `var(--color-${color}-light)`
-    );
-    root.style.setProperty(
-      "--color-primary-lighter",
-      `var(--color-${color}-lighter)`
-    );
-    root.style.setProperty(
-      "--color-primary-dark",
-      `var(--color-${color}-dark)`
-    );
-    root.style.setProperty(
-      "--color-primary-darker",
-      `var(--color-${color}-darker)`
-    );
-    window.localStorage.setItem("color", color);
-    //
-  };
-
-  const openSearchPanel = () => {
-    if (handleEscapeKey) {
-      setIsSearchPanelOpen(!isSearchPanelOpen);
-    }
-  };
-
-  const historyItems = Array.from({ length: 5 }, (_, i) => i + 1);
-
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    // Add your theme toggle logic here
-  };
-  const setLightTheme = () => {
-    // Implement your light theme logic
-    setIsDark(false);
-  };
-
-  const setDarkTheme = () => {
-    // Implement your dark theme logic
-    setIsDark(true);
-  };
-
-  const openSettingsPanel = () => {
-    setIsSettingsPanelOpen(!isSettingsPanelOpen);
-  };
-
-  const handleToggle = () => {
-    setIsNotificationsPanelOpen(!isNotificationsPanelOpen);
-  };
-
-  const handleClose = () => {
-    setIsNotificationsPanelOpen(false);
-  };
-
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
-  };
     return(<>
 
-<div className={isDark ? "dark" : ""}>
-        <div className="flex w-full antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
-          <div
-            ref={loadingRef}
-            class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-primary-darker"
-          >
-            Loading.....
-          </div>
-    <aside className="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block">
+
+<aside className="flex-shrink-0 hidden w-64 bg-white border-r dark:border-primary-darker dark:bg-darker md:block">
             <div className="flex flex-col h-full">
               <nav
                 aria-label="Main"
                 className="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto"
               >
                 <div x-data="{ isActive: true, open: true}">
-                 
-                  <a to="/"
-                   className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                  <Link
+                    to={"/dashboard"}
+                    className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                     role="button"
                     aria-haspopup="true"
-                   >
+                  >
                     <span aria-hidden="true">
                       <svg
                         className="w-5 h-5"
@@ -190,13 +53,13 @@ export default function AsideBar(){
                         />
                       </svg>
                     </span>
-                    </a>
+                  </Link>
                 </div>
 
-                {/* Repeat the structure for other navigation items */}
-
+          
                 <div x-data="{ isActive: false, open: false }">
-                  <a href=""
+                  <Link
+                    to={"/addexpense"}
                     className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                     role="button"
                     aria-haspopup="true"
@@ -234,18 +97,183 @@ export default function AsideBar(){
                         />
                       </svg>
                     </span>
-                  </a>
+                  </Link>
+                </div>
+                <div x-data="{ isActive: false, open: false }">
+                  <Link
+                    to={"/expenseview"}
+                    className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                    role="button"
+                    aria-haspopup="true"
+                  >
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </span>
+                    <span className="ml-2 text-sm">My Expenses</span>
+                    <span aria-hidden="true" className="ml-auto">
+                      <svg
+                        className="w-4 h-4 transition-transform transform"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
+                </div>
+                <div x-data="{ isActive: false, open: false }">
+                  <Link
+                    to={"/profile"}
+                    className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                    role="button"
+                    aria-haspopup="true"
+                  >
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        />
+                      </svg>
+                    </span>
+                    <span className="ml-2 text-sm">Profile</span>
+                    <span aria-hidden="true" className="ml-auto">
+                      <svg
+                        className="w-4 h-4 transition-transform transform"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
+                </div>
+                <div x-data="{ isActive: false, open: false }">
+                  <Link
+                    to={"/setting"}
+                    className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                    role="button"
+                    aria-haspopup="true"
+                  >
+                    <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                        />
+                      </svg>
+                    </span>
+                    <span className="ml-2 text-sm">Settings</span>
+                    <span aria-hidden="true" className="ml-auto">
+                      <svg
+                        className="w-4 h-4 transition-transform transform"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
                 </div>
 
-                {/* Repeat the structure for other navigation items */}
+                <div x-data="{ isActive: false, open: false }">
+                  <Link
+                    to={"/login"}
+                    className="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                    role="button"
+                    aria-haspopup="true"
+                  >
+                    <span aria-hidden="true">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path d="M14 5l7 7-7 7"></path>
+                        <path d="M2 12h19"></path>
+                      </svg>
+                    </span>
+                    <span className="ml-2 text-sm">Logout</span>
+                    <span aria-hidden="true" className="ml-auto">
+                      <svg
+                        className="w-4 h-4 transition-transform transform"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
+                </div>
 
-                {/* ... Additional navigation items ... */}
+              
               </nav>
             </div>
           </aside>
-
-          </div>
-</div>
+       
 
     </>)
 }
