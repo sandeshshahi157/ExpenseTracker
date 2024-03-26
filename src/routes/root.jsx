@@ -1145,14 +1145,7 @@ const Root = () => {
             )}
 
             <main className="h-screen bg-white dark:bg-darker ">
-              <Outlet />
-              {/* <AddExpense/> */}
-              {/* <ExpenseForm/> */}
-
-              {/* <SettingsPage/> */}
-              {/* Main footer */}
-              {/* <ProfilePage/> */}
-              {/* <WalletPage/> */}
+              <Outlet /> 
 
               <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
                 <div>ExP &copy; 2024</div>

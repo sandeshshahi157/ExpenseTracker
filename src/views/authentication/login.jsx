@@ -6,9 +6,27 @@ function LoginForm() {
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const validateLoginForm = (e) => {
+  const validateLoginForm = async (e) => {
     e.preventDefault();
 
+    try {
+      const response = await fetch('http://192.168.137.38:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      // If login is successful, redirect the user to the dashboard or another page
+      window.location.href = '/dashboard'; // Assuming '/dashboard' is the route after successful login
+    } catch (error) {
+      setErrorMessage('Invalid email or password');
+    }
     // Validate Email using a simple regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.trim())) {
@@ -149,3 +167,6 @@ function LoginForm() {
 }
 
 export default LoginForm;
+
+
+

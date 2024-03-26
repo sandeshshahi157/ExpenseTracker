@@ -13,11 +13,11 @@ const LandingPage = () => {
           <h1 className="text-2xl font-semibold pt-5">Expense Tracker</h1>
           <div className="mt-4 flex gap-8 ">
             <button className="w-28 h-10 shadow-md shadow-gray-500/50 rounded-lg bg-black">
-              <Link to={"/"}
+              <Link to={"/login"}
               >Sign Up</Link>
             </button>
             <button className="w-28 h-10 shadow-md shadow-gray-500/50 rounded-lg bg-purple-400">
-              <a href="/">Login</a>
+              <Link to={"/login"}>Login</Link>
             </button>
           </div>
         </div>
