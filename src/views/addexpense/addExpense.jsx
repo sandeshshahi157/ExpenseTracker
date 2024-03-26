@@ -200,7 +200,7 @@ const ExpenseForm = () => {
     </div>
     <div class=" items-center text-base text-gray-900 dark:text-gray-400">
         <p class="font-semibold"> $ {expense.expenseAmount} </p>
-        <p class="text-sm text-gray-500 font-sm"> {expense.expenseDate}</p>
+        <p class="text-sm text-gray-500 font-sm"> {expense.transactionDate}</p>
 
     </div>
 </div>
