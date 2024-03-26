@@ -48,7 +48,7 @@ const SignUpForm = () => {
       }
 
       // Send a request to the server to register the user
-      const response = await axios.post("http://192.168.137.38:3000/register", {
+      const response = await axios.post("http://192.168.75.92:3000/register", {
         firstName,
         lastName,
         email,
@@ -72,7 +72,7 @@ const SignUpForm = () => {
       <section className="bg-white">
         <div className="lg:grid lg:min-h-screen lg:grid-cols-12 sm:grid-cols-12">
           <aside className=" relative lg:mt-40 block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
-            {/* Your image component or path */}
+     
             <img
               alt="Pattern"
               src="src/assets/svg_5.svg"

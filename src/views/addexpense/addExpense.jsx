@@ -1,50 +1,82 @@
-import React, { useState } from 'react';
-import ChildComponent from './dialouge';
-import './addExpense.css'
+
+import React, { useState,useEffect } from 'react';
+
+import './addExpense.css';
 
 const ExpenseForm = () => {
   const [isBlurred, setIsBlurred] = useState(false);
-
+  const [error, setError] = useState(null); // State to handle errors
+  const [expenses, setExpenses] = useState([]);
   const handleBlurToggle = () => {
     setIsBlurred(!isBlurred);
-  };  
-  const [expense, setExpense] = useState('');
-  const [amount, setAmount] = useState('');
-  const [bill, setBill] = useState(null);
-  const [expenseType, setExpenseType] = useState('Type of Expense');
-  const [date, setDate] = useState('');
-  const [description, setDescription] = useState('');
-  const [agreeTerms, setAgreeTerms] = useState(false);
+  };
+  useEffect(() => {
+    fetchExpenses();
+  }, []);
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    setBill(file);
+  const fetchExpenses = async () => {
+    try {
+      const response = await fetch('http://192.168.75.92:3000/expenses');
+      if (!response.ok) {
+        throw new Error('Failed to fetch expenses');
+      }
+      const data = await response.json();
+      setExpenses(data);
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
-  const handleSubmit = (event) => {
+
+  const [expenseTitle, setExpenseTitle] = useState('');
+  const [expenseAmount, setExpenseAmount] = useState('');
+  const [expenseType, setExpenseType] = useState('Type of Expense');
+  const [expenseDate, setExpenseDate] = useState('');
+  const [expenseDescription, setExpenseDescription] = useState('');
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Perform your form submission logic here
-    console.log('Form Submitted:', {
-      expense,
-      amount,
-      bill,
-      expenseType,
-      date,
-      description,
-      agreeTerms,
-    });
-    // Reset form fields if needed
-    setExpense('');
-    setAmount('');
-    setBill(null);
-    setExpenseType('Type of Expense');
-    setDate('');
-    setDescription('');
-    setAgreeTerms(false);
+
+    try {
+      const response = await fetch('http://192.168.75.92:3000/add-expense', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          expenseTitle,
+          expenseAmount,
+          expenseType,
+          expenseDate,
+          expenseDescription,
+       
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to add expense');
+      }
+
+      // Reset form fields after successful submission
+      setExpenseTitle('');
+      setExpenseAmount('');
+      setExpenseType('Type of Expense');
+      setExpenseDate('');
+      setExpenseDescription('');
+    
+      fetchExpenses();
+
+      // Handle any success behavior, e.g., show a success message
+      console.log('Expense added successfully');
+    } catch (error) {
+      // Handle error
+      setError(error.message);
+    }
   };
 
   return (
-    <div className="h-full font-mono ">
+    <div className="h-full font-mono">
       <div className="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
         <h1 className="text-2xl font-semibold">Add Expense</h1>
       </div>
@@ -53,47 +85,31 @@ const ExpenseForm = () => {
         <div className="form">
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
-              <label htmlFor="expense" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Expense
+              <label htmlFor="expenseTitle" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Expense Title
               </label>
               <input
                 type="text"
-                id="expense"
-                value={expense}
-                onChange={(e) => setExpense(e.target.value)}
+                id="expenseTitle"
+                value={expenseTitle}
+                onChange={(e) => setExpenseTitle(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               />
             </div>
 
             <div className="mb-6">
-              <label htmlFor="amount" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Amount
+              <label htmlFor="expenseAmount" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Expense Amount
               </label>
               <input
                 type="text"
-                id="amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+                id="expenseAmount"
+                value={expenseAmount}
+                onChange={(e) => setExpenseAmount(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               />
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="image" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Upload Bill image
-              </label>
-              <input
-                type="file"
-                id="image"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                onChange={handleFileChange}
-                required
-              />
-              <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">
-                SVG, PNG, JPG, or GIF (MAX. 800x400px).
-              </p>
             </div>
 
             <div className="mb-6">
@@ -113,53 +129,39 @@ const ExpenseForm = () => {
                 <option value="Food">Food</option>
                 <option value="Travel">Travel</option>
                 <option value="Utilities">Utilities</option>
-                {/* Add more options as needed */}
               </select>
             </div>
 
             <div className="mb-6">
-              <label htmlFor="date" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Date
+              <label htmlFor="expenseDate" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Expense Date
               </label>
               <input
                 type="date"
-                id="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
+                id="expenseDate"
+                value={expenseDate}
+                onChange={(e) => setExpenseDate(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               />
             </div>
 
             <div className="mb-6">
-              <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Description
+              <label htmlFor="expenseDescription" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Expense Description
               </label>
               <textarea
-                id="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                id="expenseDescription"
+                value={expenseDescription}
+                onChange={(e) => setExpenseDescription(e.target.value)}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 rows="3"
               ></textarea>
             </div>
 
-            <div className="mb-6">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id="agreeTerms"
-                  checked={agreeTerms}
-                  onChange={(e) => setAgreeTerms(e.target.checked)}
-                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded dark:text-blue-400 dark:focus:ring-blue-800 dark:border-gray-600"
-                  required
-                />
-                <label htmlFor="agreeTerms" className="ml-2 block text-sm text-gray-900 dark:text-gray-300">
-                  I agree to the terms and conditions
-                </label>
-              </div>
-            </div>
+      
 
+         
             <button
             onClick={handleBlurToggle}
               type="submit"
@@ -171,13 +173,53 @@ const ExpenseForm = () => {
 
 
           </form>
-          {isBlurred &&(
-            <ChildComponent/>
-          )}
-        </div>
-      </div>
+     
+
+{/* Error handling */}
+{error && <p className="text-red-500">{error}</p>}
+</div>
+</div>
+
+<div className="recentExpenses mt-2 pl-5">
+<h2 className="text-lg font-semibold mb-4 ">Recent Expenses</h2>
+<ul>
+{expenses.map((expense) => (
+
+  <li key={expense.id} class="pb-3 sm:pb-4">
+  <div class="flex items-center space-x-4 rtl:space-x-reverse">
+    <div class="flex-shrink-0">
+        <img class="w-8 h-8 rounded-full" src="" alt="Expense Image"/>
     </div>
+    <div class="flex-1 min-w-0">
+        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300">
+        {expense.expenseTitle}
+        </p>
+        <p class="text-sm text-gray-500 truncate dark:text-gray-300">
+           {expense.expenseDescription}
+        </p>
+    </div>
+    <div class=" items-center text-base text-gray-900 dark:text-gray-400">
+        <p class="font-semibold"> $ {expense.expenseAmount} </p>
+        <p class="text-sm text-gray-500 font-sm"> {expense.expenseDate}</p>
+
+    </div>
+</div>
+</li>
+))}
+</ul>
+        </div>
+
+
+
+      </div>
+  
   );
 };
 
 export default ExpenseForm;
+
+
+
+
+
+

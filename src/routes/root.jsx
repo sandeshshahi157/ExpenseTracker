@@ -1147,7 +1147,7 @@ const Root = () => {
             <main className="h-screen bg-white dark:bg-darker ">
               <Outlet /> 
 
-              <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
+              {/* <footer className="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
                 <div>ExP &copy; 2024</div>
                 <div>
                   Made by
@@ -1159,7 +1159,7 @@ const Root = () => {
                     HackEath
                   </a>
                 </div>
-              </footer>
+              </footer> */}
             </main>
           </div>
         </div>

@@ -10,7 +10,7 @@ function LoginForm() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://192.168.137.38:3000/login', {
+      const response = await fetch('http://192.168.75.92:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,24 +40,20 @@ function LoginForm() {
       return;
     }
 
-    // If all validations pass, show loading overlay and allow the form submission
+   
     showLoadingOverlay();
   };
 
   const showLoadingOverlay = () => {
-    // Show loading overlay
-    // You may replace this with your preferred loading mechanism or navigate to the next page
-    // after some asynchronous operation, like an API call.
-    // For simplicity, we use setTimeout to simulate a loading process.
+  
     setTimeout(() => {
-      history.push('/dashboard'); // Replace with your actual dashboard route
+      history.push('/dashboard');
     }, 2000);
   };
 
   const displayErrorMessage = (message) => {
     setErrorMessage(message);
 
-    // Automatically clear the error message after 5 seconds (adjust as needed)
     setTimeout(() => {
       setErrorMessage('');
     }, 5000);
